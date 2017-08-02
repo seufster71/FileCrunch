@@ -31,6 +31,8 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+
+
 public class ChainAnalysis extends ProcessManager {
 	private TextField inputFileField = null;
 	private TextField inputDirectoryField = null;
