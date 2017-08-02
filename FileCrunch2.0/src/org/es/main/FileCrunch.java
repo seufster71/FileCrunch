@@ -36,6 +36,7 @@ public class FileCrunch extends Application implements StatusListener{
 	private FileSearch fileSearch = null;
 	private CommissionLogAnalysis commissionLogAnalysis = null;
 	private JobLogAnalysis jobLogAnalysis = null;
+	private QueryAnalysis queryAnalysis = null;
 	private ChainAnalysis chainAnalysis = null;
 	private TestArea testArea = null;
 	private DBScannerView dbScanner = null;
@@ -54,6 +55,7 @@ public class FileCrunch extends Application implements StatusListener{
 		 logAnalysis = new LogAnalysis(this);
 		 commissionLogAnalysis = new CommissionLogAnalysis(this);
 		 jobLogAnalysis = new JobLogAnalysis(this);
+		 queryAnalysis = new QueryAnalysis(this);
 		 chainAnalysis = new ChainAnalysis(this);
 		 testArea = new TestArea(this);
 		 dbScanner = new DBScannerView(this);
@@ -106,6 +108,12 @@ public class FileCrunch extends Application implements StatusListener{
                  jobLogAnalysis.draw(primaryStage, root);
              }
          }); 
+         MenuItem queryAnalysisMenu = new MenuItem("Query Analysis");
+         queryAnalysisMenu.setOnAction(new EventHandler<ActionEvent>() {
+             public void handle(ActionEvent t) { 
+                 queryAnalysis.draw(primaryStage, root);
+             }
+         }); 
          MenuItem testAreaMenu = new MenuItem("Test area");
          testAreaMenu.setOnAction(new EventHandler<ActionEvent>() {
              public void handle(ActionEvent t) { 
@@ -118,7 +126,7 @@ public class FileCrunch extends Application implements StatusListener{
                  dbScanner.draw(primaryStage, root);
              }
          }); 
-         menuTools.getItems().addAll(fileSplitMenu,fileSearchMenu,logAnalysisMenu,chainAnalysisMenu,commissionLogAnalysisMenu,jobLogAnalysisMenu,testAreaMenu,dbScannerMenu);	     
+         menuTools.getItems().addAll(fileSplitMenu,fileSearchMenu,logAnalysisMenu,chainAnalysisMenu,commissionLogAnalysisMenu,jobLogAnalysisMenu,queryAnalysisMenu,testAreaMenu,dbScannerMenu);	     
 	     
 	     menuBar.getMenus().addAll(menuFile, menuTools);
 	     topContainer.getChildren().addAll(menuBar);
